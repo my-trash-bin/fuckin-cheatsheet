@@ -1,0 +1,5 @@
+Credentials cache: API:A7A34F94-32F3-4F90-8F3A-98F720BC6658
+        Principal: hyeopark@42SEOUL.KR
+
+  Issued                Expires               Principal
+Oct 12 19:13:05 2020  Oct 13 05:12:58 2020  krbtgt/42SEOUL.KR@42SEOUL.KR
