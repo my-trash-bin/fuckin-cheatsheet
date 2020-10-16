@@ -1,1 +1,1 @@
-*ehco -n 42 > ...MaRViN...*
+**echo -n 42 > ...MaRViN...**
