@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rush04.c                                           :+:      :+:    :+:   */
+/*   rush03.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sashin <sashin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/17 21:45:50 by hyeopark          #+#    #+#             */
-/*   Updated: 2020/10/18 12:31:37 by sashin           ###   ########.fr       */
+/*   Created: 2020/10/18 11:24:19 by bukim             #+#    #+#             */
+/*   Updated: 2020/10/18 12:21:23 by sashin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void		ft_putchar(char c);
 
-void		rush04(int x, int y)
+void		rush03(int x, int y)
 {
 	int col;
 	int row;
@@ -27,11 +27,9 @@ void		rush04(int x, int y)
 		col = 0;
 		while (++col <= x)
 		{
-			if (col == 1 && row == 1)
+			if (col == 1 && (row == 1 || row == y))
 				ft_putchar('A');
-			else if ((col == x && col != 1) && (row == y && row != 1))
-				ft_putchar('A');
-			else if ((col == 1 && row == y) || (col == x && row == 1))
+			else if (col == x && (row == 1 || row == y))
 				ft_putchar('C');
 			else if (col == 1 || col == x || row == 1 || row == y)
 				ft_putchar('B');

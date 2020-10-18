@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rush04.c                                           :+:      :+:    :+:   */
+/*   rush00.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sashin <sashin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/17 21:45:50 by hyeopark          #+#    #+#             */
-/*   Updated: 2020/10/18 12:31:37 by sashin           ###   ########.fr       */
+/*   Created: 2020/10/18 11:28:57 by hyeopark          #+#    #+#             */
+/*   Updated: 2020/10/18 12:29:57 by sashin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void		ft_putchar(char c);
+void	ft_putchar(char c);
 
-void		rush04(int x, int y)
+void	rush00(int x, int y)
 {
-	int col;
 	int row;
+	int col;
 
 	if (x <= 0 || y <= 0)
 		return ;
@@ -27,14 +27,14 @@ void		rush04(int x, int y)
 		col = 0;
 		while (++col <= x)
 		{
-			if (col == 1 && row == 1)
-				ft_putchar('A');
-			else if ((col == x && col != 1) && (row == y && row != 1))
-				ft_putchar('A');
-			else if ((col == 1 && row == y) || (col == x && row == 1))
-				ft_putchar('C');
-			else if (col == 1 || col == x || row == 1 || row == y)
-				ft_putchar('B');
+			if ((row == 1 && col == 1) || (row == y && col == x))
+				ft_putchar('o');
+			else if ((row == y && col == 1) || (col == x && row == 1))
+				ft_putchar('o');
+			else if (row == 1 || row == y)
+				ft_putchar('-');
+			else if (col == x || col == 1)
+				ft_putchar('|');
 			else
 				ft_putchar(' ');
 		}
