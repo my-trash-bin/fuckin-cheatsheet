@@ -2,6 +2,20 @@
 # Created by https://www.toptal.com/developers/gitignore/api/macos,vscode
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos,vscode
 
+### ownsettings ###
+#executable
+*.out
+*.app
+*.bat
+*.cgi
+*.com
+*.exe
+*.gadget
+*.jar
+*.pif
+*.vb
+*.wsf
+
 ### macOS ###
 # General
 .DS_Store
