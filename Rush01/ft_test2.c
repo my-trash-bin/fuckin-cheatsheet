@@ -1,33 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_test_nocommet_norOK.c                           :+:      :+:    :+:   */
+/*   ft_test2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: minsekim <minsekim@42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/24 18:49:09 by minsekim          #+#    #+#             */
-/*   Updated: 2020/10/24 20:29:53 by minsekim         ###   ########.fr       */
+/*   Updated: 2020/10/25 14:00:55 by hyeopark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
-
-
-void    print(char *answer)
-{
-    printf("submit:: \n");
-    printf("%c %c %c %c\n", answer[0], answer[1], answer[2], answer[3]);
-    printf("%c %c %c %c\n", answer[4], answer[5], answer[6], answer[7]);
-    printf("%c %c %c %c\n", answer[8], answer[9], answer[10], answer[11]);
-    printf("%c %c %c %c\n", answer[12], answer[13], answer[14], answer[15]);
-}
+#include "header.h"
 
 void	init_and_usehint(char *submit, char *condition)
 {
 	int		i;
 	int		j;
-	/*init*/
+
 	i = 0;
     while (i < 16)
         submit[i++] = '1';
@@ -59,10 +48,10 @@ void	init_and_usehint(char *submit, char *condition)
             }
             else if(i < 16)
             {
-                submit[4 * i - 45] = '1'; /*(i - 9) + (i - 12) * 4*/
-                submit[4 * i - 46] = '2';
-                submit[4 * i - 47] = '3';
-                submit[4 * i - 48] = '4';
+				submit[4 * i - 45] = '1';
+				submit[4 * i - 46] = '2';
+				submit[4 * i - 47] = '3';
+				submit[4 * i - 48] = '4';
             }
         }
         else if (condition[i] == '1')
@@ -112,7 +101,6 @@ int		is_comb(char *submit)
     {
         if (i < 4 && is_comb_in_a_row(s[i], s[i + 4], s[i + 8], s[i + 12]))
         {
-            //printf("%c %c %c %c\n", s[i], s[i + 4], s[i + 8], s[i + 12]);
             return (1);
         }
         if (4 <= i && i < 8 && is_comb_in_a_row(s[i + 8], s[i + 4], s[i], s[i - 4]))
@@ -213,9 +201,9 @@ int		loop(char *submit)
              return (1);
         }
         else
-            return (0);/*printf("Reach to END");*/
+            return (0);
 
-    return (-1); //에러
+    return (-1);
 }
 
 
@@ -253,6 +241,6 @@ int		rush01(char *str)
 
 int	main(int argc, char *argv[])
 {
-	rush01("2 1 3 2 2 3 1 2 2 3 1 3 2 1 4 2");
+	rush01("2 1 3 2 2 3 1 2 2 1 3 2 2 3 1 2");
 	return (0);
 }
