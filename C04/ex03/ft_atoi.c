@@ -6,7 +6,7 @@
 /*   By: hyeopark <hyeopark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/21 21:58:42 by hyeopark          #+#    #+#             */
-/*   Updated: 2020/10/21 22:08:02 by hyeopark         ###   ########.fr       */
+/*   Updated: 2020/10/24 18:39:04 by hyeopark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,30 @@ int		is_space(unsigned char c)
 	return (0);
 }
 
+int		is_number(unsigned char c)
+{
+	return (c >= '0' && c <= '9');
+}
+
 int		ft_atoi(char *str)
 {
-	int minus;
+	int i;
+	int number;
 
-	minus = 1;
+	i = 1;
+	number = 0;
 	while (is_space(*str))
 		str++;
 	while (*str == '+' || *str == '-')
 	{
 		if (*str == '-')
-			minus *= -1;
+			i *= -1;
 		str++;
 	}
-	while (*str)
-		str++;
-	while (--str)
+	while (*str && is_number(*str))
 	{
-		
+		number = number * 10 + (*str - '0');
+		str++;
 	}
+	return (number * i);
 }
