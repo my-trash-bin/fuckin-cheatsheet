@@ -1,33 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   init_and_usehint.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyeopark <hyeopark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/24 13:14:16 by hyeopark          #+#    #+#             */
-/*   Updated: 2020/10/24 16:27:54 by hyeopark         ###   ########.fr       */
+/*   Created: 2020/10/24 18:49:09 by minsekim          #+#    #+#             */
+/*   Updated: 2020/10/25 15:09:51 by hyeopark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-int main(int argc, char *argv[])
+void	ft_putchar(char ch)
 {
-	char *condition;
-
-	if (argc != 2 || !chk_cons(argv[1])){
-		ft_write("Error");
-		ft_putchar('\n');
-		return (0);
-	}
-	condition = split_condition(argv[1]);
- 	print_arr(condition);
-
-	/*
-		logic
-	*/
-	return (0);
+	write(1, &ch, 1);
 }
 
-//  "4 3 2 1 1 2 2 2 4 3 2 1 1 2 2 2"
+void	print(char *arr)
+{
+	int idx;
+	int cnt;
+
+	idx = 0;
+	cnt = 0;
+	while (idx < 16)
+	{
+		cnt++;
+		ft_putchar(arr[idx]);
+		if (cnt != 4)
+			ft_putchar(' ');
+		if (cnt == 4)
+		{
+			ft_putchar('\n');
+			cnt = 0;
+		}
+		idx++;
+	}
+}
