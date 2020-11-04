@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   funclib.c                                          :+:      :+:    :+:   */
+/*   ft_write_file.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyeopark <hyeopark@student.42.fr>          +#+  +:+       +#+        */
+/*   By: seobae <seobae@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/31 21:52:05 by hyeopark          #+#    #+#             */
-/*   Updated: 2020/10/31 22:20:03 by hyeopark         ###   ########.fr       */
+/*   Created: 2020/11/05 03:49:58 by seobae            #+#    #+#             */
+/*   Updated: 2020/11/05 03:49:59 by seobae           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "rush02.h"
+#include "ft_bbq.h"
 
-int		str_len(char *str)
+char	*ft_write_file(void)
 {
-	int len;
+	int		fd;
+	char	buffer;
 
-	len = 0;
-	while(str[len])
-		len++;
-	return (len);
-}
-
-int		is_space(char c)
-{
-	return (c == ' ' || c == '\t');
+	if ((fd = open("file", O_WRONLY | O_CREAT | O_TRUNC, 0666)) < 0)
+		return (NULL);
+	while (read(STDIN_FILENO, &buffer, 1))
+		write(fd, &buffer, 1);
+	close(fd);
+	return ("file");
 }
